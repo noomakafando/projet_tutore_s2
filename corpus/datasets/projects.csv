@@ -1,0 +1,9 @@
+name,language,github_url,cve_examples,description
+django,python,https://github.com/django/django,"CVE-2019-6975,CVE-2021-45116",Framework web Python
+pillow,python,https://github.com/python-pillow/Pillow,"CVE-2021-34552,CVE-2022-22817",Traitement d'images Python
+paramiko,python,https://github.com/paramiko/paramiko,CVE-2018-7750,Client SSH Python
+struts,java,https://github.com/apache/struts,CVE-2017-5638,Framework MVC Java
+commons-collections,java,https://github.com/apache/commons-collections,CVE-2015-7501,Utilitaires Java
+h2database,java,https://github.com/h2database/h2database,CVE-2021-42392,Base de données Java
+express,javascript,https://github.com/expressjs/express,CVE-2022-24999,Framework Node.js
+lodash,javascript,https://github.com/lodash/lodash,CVE-2019-10744,Utilitaires JavaScript
