@@ -85,14 +85,14 @@ semgrep --version
 ##Télécharger les corpus(differents projets git à analysé)
 ##les différents projet seront classés automatiquement dans corpus, respectivement, python, django, ....
 cd scripts
-python run_semgrep.py
+python setup.py
+
 
 ## lancer l'analyseur semgrep
-
 cd scripts
 python run_semgrep.py
 
-##Analyser les resultat obtenu par semgrep
 
+##Analyser les resultat obtenu par semgrep
 cd scripts
 python analyze.py
