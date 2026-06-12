@@ -1,0 +1,1512 @@
+{
+  "commons-collections": {
+    "total": 0,
+    "by_severity": {},
+    "findings": []
+  },
+  "django": {
+    "total": 9,
+    "by_severity": {
+      "WARNING": [
+        "python.django.security.injection.open-redirect.open-redirect",
+        "python.django.security.injection.open-redirect.open-redirect",
+        "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+        "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+        "python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+        "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+        "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "python.lang.security.audit.sha224-hash.sha224-hash",
+        "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\contrib\\admin\\options.py",
+        "line": 1664,
+        "rule": "python.django.security.injection.open-redirect.open-redirect",
+        "message": "Data from request (redirect_url) is passed to redirect(). This is an open redirect and could be exploited. Ensure you are redirecting to safe URLs by using django.utils.http.is_safe_url(). See https://cwe.mitre.org/data/definitions/601.html for more information."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\contrib\\admin\\options.py",
+        "line": 1735,
+        "rule": "python.django.security.injection.open-redirect.open-redirect",
+        "message": "Data from request (redirect_url) is passed to redirect(). This is an open redirect and could be exploited. Ensure you are redirecting to safe URLs by using django.utils.http.is_safe_url(). See https://cwe.mitre.org/data/definitions/601.html for more information."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\contrib\\auth\\forms.py",
+        "line": 419,
+        "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+        "message": "Detected a python logger call with a potential hardcoded secret \"Failed to send password reset email to %s\" being logged. This may lead to secret credentials being exposed. Make sure that the logger is not logging  sensitive information."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\contrib\\auth\\hashers.py",
+        "line": 669,
+        "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+        "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\contrib\\auth\\hashers.py",
+        "line": 669,
+        "rule": "python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+        "message": "It looks like MD5 is used as a password hash. MD5 is not considered a secure password hash because it can be cracked by an attacker in a short amount of time. Use a suitable password hashing function such as scrypt. You can use `hashlib.scrypt`."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\db\\backends\\sqlite3\\_functions.py",
+        "line": 414,
+        "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+        "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\db\\backends\\sqlite3\\_functions.py",
+        "line": 460,
+        "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\db\\backends\\sqlite3\\_functions.py",
+        "line": 466,
+        "rule": "python.lang.security.audit.sha224-hash.sha224-hash",
+        "message": "This code uses a 224-bit hash function, which is deprecated or disallowed in some security policies. Consider updating to a stronger hash function such as SHA-384 or higher to ensure compliance and security."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\django\\django\\template\\loaders\\cached.py",
+        "line": 96,
+        "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      }
+    ]
+  },
+  "express": {
+    "total": 41,
+    "by_severity": {
+      "WARNING": [
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "javascript.express.security.audit.xss.direct-response-write.direct-response-write"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "message": "Don’t use the default session cookie name Using the default session cookie name can open your app to attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to fingerprint the server and target attacks accordingly."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "message": "Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it to compare against the domain of the server in which the URL is being requested. If they match, then check the path attribute next."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "message": "Default session middleware settings: `expires` not set. Use it to set expiration date for persistent cookies."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "message": "Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "message": "Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to compare against the request path. If this and domain match, then send the cookie in the request."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 22,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "message": "Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie over HTTPS."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\auth\\index.js",
+        "line": 25,
+        "rule": "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "message": "A hard-coded credential was detected. It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module)."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "message": "Don’t use the default session cookie name Using the default session cookie name can open your app to attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to fingerprint the server and target attacks accordingly."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "message": "Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it to compare against the domain of the server in which the URL is being requested. If they match, then check the path attribute next."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "message": "Default session middleware settings: `expires` not set. Use it to set expiration date for persistent cookies."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "message": "Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "message": "Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to compare against the request path. If this and domain match, then send the cookie in the request."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\cookie-sessions\\index.js",
+        "line": 13,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "message": "Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie over HTTPS."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "message": "Don’t use the default session cookie name Using the default session cookie name can open your app to attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to fingerprint the server and target attacks accordingly."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "message": "Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it to compare against the domain of the server in which the URL is being requested. If they match, then check the path attribute next."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "message": "Default session middleware settings: `expires` not set. Use it to set expiration date for persistent cookies."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "message": "Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "message": "Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to compare against the request path. If this and domain match, then send the cookie in the request."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 40,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "message": "Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie over HTTPS."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\mvc\\index.js",
+        "line": 43,
+        "rule": "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "message": "A hard-coded credential was detected. It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module)."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\params\\index.js",
+        "line": 67,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\resource\\index.js",
+        "line": 46,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\route-map\\index.js",
+        "line": 37,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\route-map\\index.js",
+        "line": 47,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\route-map\\index.js",
+        "line": 51,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "message": "Don’t use the default session cookie name Using the default session cookie name can open your app to attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to fingerprint the server and target attacks accordingly."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "message": "Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it to compare against the domain of the server in which the URL is being requested. If they match, then check the path attribute next."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "message": "Default session middleware settings: `expires` not set. Use it to set expiration date for persistent cookies."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "message": "Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "message": "Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to compare against the request path. If this and domain match, then send the cookie in the request."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 16,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "message": "Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie over HTTPS."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\index.js",
+        "line": 19,
+        "rule": "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "message": "A hard-coded credential was detected. It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module)."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name",
+        "message": "Don’t use the default session cookie name Using the default session cookie name can open your app to attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to fingerprint the server and target attacks accordingly."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain",
+        "message": "Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it to compare against the domain of the server in which the URL is being requested. If they match, then check the path attribute next."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires",
+        "message": "Default session middleware settings: `expires` not set. Use it to set expiration date for persistent cookies."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly",
+        "message": "Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path",
+        "message": "Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to compare against the request path. If this and domain match, then send the cookie in the request."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 20,
+        "rule": "javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure",
+        "message": "Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie over HTTPS."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\session\\redis.js",
+        "line": 23,
+        "rule": "javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret",
+        "message": "A hard-coded credential was detected. It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module)."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\vhost\\index.js",
+        "line": 30,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\express\\examples\\web-service\\index.js",
+        "line": 89,
+        "rule": "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use 'resp.render()' to render safely escaped HTML."
+      }
+    ]
+  },
+  "h2database": {
+    "total": 121,
+    "by_severity": {
+      "WARNING": [
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "html.security.plaintext-http-link.plaintext-http-link",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "java.lang.security.audit.crypto.use-of-sha1.use-of-sha1",
+        "html.security.plaintext-http-link.plaintext-http-link"
+      ],
+      "ERROR": [
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.xxe.transformerfactory-dtds-not-disabled.transformerfactory-dtds-not-disabled",
+        "java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing",
+        "java.lang.security.audit.xxe.saxparserfactory-disallow-doctype-decl-missing.saxparserfactory-disallow-doctype-decl-missing",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "java.lang.security.audit.formatted-sql-string.formatted-sql-string"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\build.html",
+        "line": 249,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\build.html",
+        "line": 255,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\history.html",
+        "line": 90,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\history.html",
+        "line": 95,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\history.html",
+        "line": 143,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 61,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 67,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 71,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 73,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 77,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 79,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 81,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 83,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 85,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 91,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 97,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 102,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 107,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 117,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 127,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 138,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 158,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 168,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 173,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 180,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 190,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 195,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 200,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 220,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 230,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 236,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 246,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 251,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 256,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 261,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 267,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 278,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 289,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 299,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 304,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 316,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 321,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 333,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 338,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 353,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 360,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 365,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 380,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 385,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 390,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 401,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 411,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 421,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 431,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 437,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 442,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 447,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 457,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 475,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 480,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 497,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 503,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 508,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 518,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 523,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 533,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 538,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 543,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 553,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 564,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 569,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 574,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 584,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 589,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 599,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 604,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 609,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 614,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 624,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 629,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 639,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 644,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 651,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 656,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 668,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 686,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\links.html",
+        "line": 696,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\navigation.js",
+        "line": 23,
+        "rule": "javascript.lang.security.detect-eval-with-expression.detect-eval-with-expression",
+        "message": "Detected use of dynamic execution of JavaScript which may come from user-input, which can lead to Cross-Site-Scripting (XSS). Where possible avoid including user-input in functions which dynamically execute user-input."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\quickstart.html",
+        "line": 63,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\docsrc\\html\\tutorial.html",
+        "line": 1188,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\command\\dml\\ScriptCommand.java",
+        "line": 759,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullText.java",
+        "line": 772,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullText.java",
+        "line": 788,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullText.java",
+        "line": 807,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullTextLucene.java",
+        "line": 294,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullTextLucene.java",
+        "line": 308,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\fulltext\\FullTextLucene.java",
+        "line": 385,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\jdbc\\JdbcSQLXML.java",
+        "line": 97,
+        "rule": "java.lang.security.audit.xxe.transformerfactory-dtds-not-disabled.transformerfactory-dtds-not-disabled",
+        "message": "DOCTYPE declarations are enabled for this TransformerFactory. This is vulnerable to XML external entity attacks. Disable this by setting the attributes \"accessExternalDTD\" and \"accessExternalStylesheet\" to \"\"."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\jdbc\\JdbcSQLXML.java",
+        "line": 146,
+        "rule": "java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing",
+        "message": "DOCTYPE declarations are enabled for this DocumentBuilderFactory. This is vulnerable to XML external entity attacks. Disable this by setting the feature \"http://apache.org/xml/features/disallow-doctype-decl\" to true. Alternatively, allow DOCTYPE declarations and only prohibit external entities declarations. This can be done by setting the features \"http://xml.org/sax/features/external-general-entities\" and \"http://xml.org/sax/features/external-parameter-entities\" to false."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\jdbc\\JdbcSQLXML.java",
+        "line": 156,
+        "rule": "java.lang.security.audit.xxe.saxparserfactory-disallow-doctype-decl-missing.saxparserfactory-disallow-doctype-decl-missing",
+        "message": "DOCTYPE declarations are enabled for this SAXParserFactory. This is vulnerable to XML external entity attacks. Disable this by setting the feature `http://apache.org/xml/features/disallow-doctype-decl` to true. Alternatively, allow DOCTYPE declarations and only prohibit external entities declarations. This can be done by setting the features `http://xml.org/sax/features/external-general-entities` and `http://xml.org/sax/features/external-parameter-entities` to false. NOTE - The previous links are not meant to be clicked. They are the literal config key values that are supposed to be used to disable these features. For more information, see https://semgrep.dev/docs/cheat-sheets/java-xxe/#3a-documentbuilderfactory."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\server\\TcpServer.java",
+        "line": 467,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\server\\web\\WebApp.java",
+        "line": 1427,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\server\\web\\WebApp.java",
+        "line": 1449,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\server\\web\\WebApp.java",
+        "line": 1451,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\store\\FileLock.java",
+        "line": 381,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\CreateCluster.java",
+        "line": 114,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\CreateCluster.java",
+        "line": 119,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\CreateCluster.java",
+        "line": 130,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\CreateCluster.java",
+        "line": 151,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\CreateCluster.java",
+        "line": 152,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\RunScript.java",
+        "line": 278,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\Script.java",
+        "line": 140,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\tools\\Upgrade.java",
+        "line": 169,
+        "rule": "java.lang.security.audit.formatted-sql-string.formatted-sql-string",
+        "message": "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using 'connection.prepareStatement'."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\util\\NetUtils.java",
+        "line": 133,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\util\\NetUtils.java",
+        "line": 202,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\main\\org\\h2\\util\\NetUtils.java",
+        "line": 204,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\tools\\org\\h2\\dev\\ftp\\server\\FtpData.java",
+        "line": 65,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\tools\\org\\h2\\dev\\net\\PgTcpRedirect.java",
+        "line": 55,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\tools\\org\\h2\\dev\\net\\PgTcpRedirect.java",
+        "line": 58,
+        "rule": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "message": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\tools\\org\\h2\\dev\\util\\Migrate.java",
+        "line": 184,
+        "rule": "java.lang.security.audit.crypto.use-of-sha1.use-of-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Instead, use PBKDF2 for password hashing or SHA256 or SHA512 for other hash function applications."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\h2database\\h2\\src\\tools\\org\\h2\\jcr\\jcr-sql2.html",
+        "line": 44,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      }
+    ]
+  },
+  "lodash": {
+    "total": 1,
+    "by_severity": {
+      "WARNING": [
+        "javascript.browser.security.raw-html-concat.raw-html-concat"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\javascript\\lodash\\perf\\asset\\perf-ui.js",
+        "line": 31,
+        "rule": "javascript.browser.security.raw-html-concat.raw-html-concat",
+        "message": "User controlled data in a HTML string may result in XSS"
+      }
+    ]
+  },
+  "paramiko": {
+    "total": 4,
+    "by_severity": {
+      "WARNING": [
+        "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\paramiko\\paramiko\\config.py",
+        "line": 449,
+        "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\paramiko\\paramiko\\hostkeys.py",
+        "line": 294,
+        "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\paramiko\\paramiko\\hostkeys.py",
+        "line": 299,
+        "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\python\\paramiko\\paramiko\\pkey.py",
+        "line": 390,
+        "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+        "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+      }
+    ]
+  },
+  "pillow": {
+    "total": 2,
+    "by_severity": {
+      "ERROR": [
+        "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+        "python.lang.security.audit.dangerous-subprocess-use-tainted-env-args.dangerous-subprocess-use-tainted-env-args"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "ERROR",
+        "file": "corpus\\python\\pillow\\src\\PIL\\ImageShow.py",
+        "line": 148,
+        "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+        "message": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead."
+      },
+      {
+        "severity": "ERROR",
+        "file": "corpus\\python\\pillow\\winbuild\\build_prepare.py",
+        "line": 407,
+        "rule": "python.lang.security.audit.dangerous-subprocess-use-tainted-env-args.dangerous-subprocess-use-tainted-env-args",
+        "message": "Detected subprocess function 'check_output' with user controlled data. A malicious actor could leverage this to perform command injection. You may consider using 'shlex.quote()'."
+      }
+    ]
+  },
+  "struts": {
+    "total": 2,
+    "by_severity": {
+      "WARNING": [
+        "java.lang.security.audit.unvalidated-redirect.unvalidated-redirect",
+        "html.security.plaintext-http-link.plaintext-http-link"
+      ]
+    },
+    "findings": [
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\struts\\core\\src\\main\\java\\org\\apache\\struts2\\result\\ServletRedirectResult.java",
+        "line": 243,
+        "rule": "java.lang.security.audit.unvalidated-redirect.unvalidated-redirect",
+        "message": "Application redirects to a destination URL specified by a user-supplied parameter that is not validated. This could direct users to malicious locations. Consider using an allowlist to validate URLs."
+      },
+      {
+        "severity": "WARNING",
+        "file": "corpus\\java\\struts\\core\\src\\main\\resources\\overview.html",
+        "line": 26,
+        "rule": "html.security.plaintext-http-link.plaintext-http-link",
+        "message": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+      }
+    ]
+  }
+}
