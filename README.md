@@ -75,7 +75,7 @@ semgrep --version
 │   └── python/
 │
 ├── docs/
-│   ├── articles/
+│   ├
 │   └── soutenance/
 │
 ├── scripts/
@@ -96,3 +96,15 @@ python run_semgrep.py
 ##Analyser les resultat obtenu par semgrep
 cd scripts
 python analyze.py
+
+## Installer codeql 
+## Télécharger codeql zip depuis github
+https://github.com/github/codeql-action/releases/latest
+
+# Deziper dans le C:\ et ajouter C:\codeql\  au path dans variable environnement
+##verifier l'intallation
+codeql --version
+
+## Lancer run_codeql.py pour analyser les projets
+cd scripts
+python run_codeql.py
